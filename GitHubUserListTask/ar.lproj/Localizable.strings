@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  GitHubUserListTask
+
+  Created by ahmed on 31/10/2021.
+  
+*/
+
+"AlertTitle" = "خطأ";
+"AlertMessage" =  " يوجد مشكلة بالإتصال بالإنترنت أو أنك قد تجاوزت الحد الأقصى لعدد الطلبات في الساعة لـ github api.";
+"OkButton" = "حسنًا ";
+"Name" = "الاسم: ";
+"Link" = "الرابط: ";
+"Email" = "البريد الإلكتروني: ";
+"Blog" = "مدونة: ";
+"Twitter" = "تويتر: @";
+"Bio" = "السيرة الذاتية: ";
+"Location" = "الموقع: ";
+"Company" = "الشركة: ";
+"Hierable" = "متاح للعمل: ";
+"Public Repositories" = "مستودعات عامة: ";
+"Public Gists" = "خلاصات عامة: ";
+"Followers" = "متابِعًا: ";
+"Following" = "متابَعًا: ";
+"Updated At" = "حُدث في: ";
+"Created At" = "اُنشئ  في: ";
+"Not Available" = "[غير متاح]";
+"Unknown" = "غير معروف";
+"Repositories" = "مستودعات: ";

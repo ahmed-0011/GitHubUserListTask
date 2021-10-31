@@ -1,0 +1,29 @@
+/*
+  Localizable.strings
+  GithubUserListTask
+
+  Created by ahmed on 31/10/2021.
+  
+*/
+
+"AlertTitle" = "Error";
+"AlertMessage" =  "Either there is no internet connection  or you have exceeded the limit of maximum number of requests per hour for github api.";
+"OkButton" = "Ok";
+"Name" = "Name: ";
+"Link" = "Link: ";
+"Email" = "Email: ";
+"Blog" = "Blog: ";
+"Twitter" = "Twitter: @";
+"Bio" = "Bio: ";
+"Location" = "Location: ";
+"Company" = "Company: ";
+"Hierable" = "Hierable: ";
+"Public Gists" = "Public Gists: ";
+"Public Repositories" = "Public Repositories: ";
+"Followers" = "Followers: ";
+"Following" = "Following: ";
+"Updated At" = "Updated At: ";
+"Created At" = "Created At: ";
+"Not Available" = "[Not Available]";
+"Unknown" = "Unknown";
+"Repositories" = "Repositories: ";

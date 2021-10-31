@@ -1,0 +1,6 @@
+framework module Pods_GitHubUserListTask {
+  umbrella header "Pods-GitHubUserListTask-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uhg-9e-L7r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Github Users-->
+        <scene sceneID="Iry-4c-3W6">
+            <objects>
+                <viewController id="WYP-i8-tTY" customClass="GithubUserListViewController" customModule="GitHubUserListTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3bD-dy-vr4" customClass="GithubUserListView" customModule="GitHubUserListTask" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xST-AX-jdp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Github Users" id="wwd-XI-Z7A">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="wtM-39-XmO"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="gitHubUsersView" destination="3bD-dy-vr4" id="tYF-qV-BSz"/>
+                        <segue destination="JKb-bj-l96" kind="show" identifier="GitHubUserInfoSegue" id="GHq-hn-obC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1lO-yJ-MQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2115.9420289855075" y="148.66071428571428"/>
+        </scene>
+        <!--Git Hub User Info View Controller-->
+        <scene sceneID="qdJ-xG-Teo">
+            <objects>
+                <viewController storyboardIdentifier="GitHubUserInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JKb-bj-l96" customClass="GitHubUserInfoViewController" customModule="GitHubUserListTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1XN-Qp-5V3" customClass="GitHubUserInfoView" customModule="GitHubUserListTask" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Is0-pB-fIa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K2x-yu-zNI"/>
+                    <connections>
+                        <outlet property="gitHubUserInfoView" destination="1XN-Qp-5V3" id="Qgz-t4-n3j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvy-D9-Y57" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3077" y="149"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gqb-NM-vZ9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uhg-9e-L7r" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jdh-5e-SXL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WYP-i8-tTY" kind="relationship" relationship="rootViewController" id="ge3-cn-aqx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ez-Wa-N0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205.7971014492755" y="148.66071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
