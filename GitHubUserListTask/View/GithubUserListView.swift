@@ -8,16 +8,17 @@
 import UIKit
 
 protocol GitHubUserListDelegate {
-    func onCellClick(row: Int)
+    func showUserInfo(for item: Int)
     func fetchUsers(index: Int)
 }
 
 class GithubUserListView: UIView {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     var gitHubUsers: [GitHubUser] = []
     var index: Int = 0
+    var hasFinishedFetching = true
     var delegate: GitHubUserListDelegate?
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,16 +45,15 @@ class GithubUserListView: UIView {
 }
 
 
-// MARK: - Collection View Data Source
-extension  GithubUserListView: UICollectionViewDataSource {
+extension  GithubUserListView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    // MARK: - Collection View Data Source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gitHubUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GitHubUserCell.identifier, for: indexPath) as?
-            GitHubUserCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GitHubUserCell.identifier, for: indexPath) as? GitHubUserCell {
             let user = self.gitHubUsers[indexPath.row]
             let gitHubUserCellViewModel = GitHubUserCellViewModel(gitHubUser: user)
             cell.configure(with: gitHubUserCellViewModel)
@@ -61,33 +61,26 @@ extension  GithubUserListView: UICollectionViewDataSource {
        }
         return GitHubUserCell()
     }
-}
-
-
-// MARK: - Collection View Delegate
-extension  GithubUserListView: UICollectionViewDelegate {
+    
+    
+    // MARK: - Collection View Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.onCellClick(row: indexPath.row)
+        delegate?.showUserInfo(for: indexPath.item)
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == gitHubUsers.count - 1 {
-            index += 1
+        if indexPath.item == gitHubUsers.count - 1 && hasFinishedFetching {
             delegate?.fetchUsers(index: index)
             print("index/page --> \(index)")
         }
     }
-}
-
-// MARK: - Collection View Delegate Flow Layout
-extension GithubUserListView: UICollectionViewDelegateFlowLayout {
     
+    
+    // MARK: - Collection View Delegate Flow Layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         let height = self.frame.height / 2
         let spacing: CGFloat = 6
         let width = (self.frame.width / 2) - spacing
-        
         return CGSize(width: width, height: height)
     }
     

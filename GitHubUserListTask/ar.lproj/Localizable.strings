@@ -6,8 +6,8 @@
   
 */
 
-"AlertTitle" = "خطأ";
-"AlertMessage" =  " يوجد مشكلة بالإتصال بالإنترنت أو أنك قد تجاوزت الحد الأقصى لعدد الطلبات في الساعة لـ github api.";
+"FetchFailedAlertTitle" = "خطأ";
+"FetchFailedAlertMessage" =  " يوجد مشكلة بالإتصال بالإنترنت أو أنك قد تجاوزت الحد الأقصى لعدد الطلبات في الساعة لـ github api.";
 "OkButton" = "حسنًا ";
 "Name" = "الاسم: ";
 "Link" = "الرابط: ";

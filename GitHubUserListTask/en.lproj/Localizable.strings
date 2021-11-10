@@ -6,8 +6,8 @@
   
 */
 
-"AlertTitle" = "Error";
-"AlertMessage" =  "Either there is no internet connection  or you have exceeded the limit of maximum number of requests per hour for github api.";
+"FetchFailedAlertTitle" = "Error";
+"FetchFailedAlertMessage" =  "Either there is no internet connection  or you have exceeded the limit of maximum number of requests per hour for github api.";
 "OkButton" = "Ok";
 "Name" = "Name: ";
 "Link" = "Link: ";

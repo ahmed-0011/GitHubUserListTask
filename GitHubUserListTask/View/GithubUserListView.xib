@@ -37,7 +37,7 @@
                 <constraint firstItem="JDA-2P-jbq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="s24-RV-Zia"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JDA-2P-jbq" secondAttribute="trailing" id="z4u-0X-iOX"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="112"/>
+            <point key="canvasLocation" x="131.8840579710145" y="111.83035714285714"/>
         </view>
     </objects>
     <resources>

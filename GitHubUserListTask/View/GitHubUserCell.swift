@@ -9,7 +9,6 @@ import UIKit
 
 class GitHubUserCell: UICollectionViewCell {
 
-    static let identifier = "GitHubUserCell"
     @IBOutlet var view: UIView!
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var username: UILabel!
@@ -20,6 +19,7 @@ class GitHubUserCell: UICollectionViewCell {
     @IBOutlet var publicRepositories: UILabel!
     @IBOutlet var followers: UILabel!
     @IBOutlet var following: UILabel!
+    static let identifier = "GitHubUserCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +37,7 @@ class GitHubUserCell: UICollectionViewCell {
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.shadowColor = UIColor.lightGray.cgColor
         view.layer.cornerRadius = 10
+        imageInit()
     }
     
     func imageInit() {
@@ -47,7 +48,6 @@ class GitHubUserCell: UICollectionViewCell {
     
     func configure(with gitHubUserCellViewModel: GitHubUserCellViewModel) {
         viewInit()
-        imageInit()
         userImageView.image = gitHubUserCellViewModel.image
         username.text = gitHubUserCellViewModel.username
         name.text = gitHubUserCellViewModel.name

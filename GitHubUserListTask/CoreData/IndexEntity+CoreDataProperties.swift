@@ -1,8 +1,8 @@
 //
 //  IndexEntity+CoreDataProperties.swift
-//  GitHubUserListTask
+//  
 //
-//  Created by ahmed on 31/10/2021.
+//  Created by ahmed on 10/11/2021.
 //
 //
 
@@ -17,9 +17,5 @@ extension IndexEntity {
     }
 
     @NSManaged public var index: Int16
-
-}
-
-extension IndexEntity : Identifiable {
 
 }

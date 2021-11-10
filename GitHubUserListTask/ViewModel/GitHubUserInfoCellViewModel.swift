@@ -49,7 +49,6 @@ class GitHubUserInfoCellViewModel {
     }
     var gitHubUser: GitHubUser
     var row: Int
-    static let numOfRows: Int = 15
     
     init(gitHubUser: GitHubUser, row: Int) {
         self.gitHubUser = gitHubUser

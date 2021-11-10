@@ -9,8 +9,9 @@ import UIKit
 
 class GitHubUserInfoViewController: UIViewController {
 
-    var gitHubUser: GitHubUser?
     @IBOutlet var gitHubUserInfoView: GitHubUserInfoView!
+    var gitHubUser: GitHubUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gitHubUserInfoView.gitHubUser = gitHubUser

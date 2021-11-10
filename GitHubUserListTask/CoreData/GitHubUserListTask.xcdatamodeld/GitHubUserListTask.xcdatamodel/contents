@@ -3,11 +3,11 @@
     <entity name="IndexEntity" representedClassName="IndexEntity" syncable="YES">
         <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
-        <attribute name="user" optional="YES" attributeType="Transformable" valueTransformerName="UserTransformer" customClassName="GitHubUser"/>
+    <entity name="UsersEntity" representedClassName="UsersEntity" syncable="YES">
+        <attribute name="users" optional="YES" attributeType="Transformable" valueTransformerName="UserTransformer" customClassName="[GitHubUser]"/>
     </entity>
     <elements>
-        <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="IndexEntity" positionX="-54" positionY="0" width="128" height="44"/>
+        <element name="UsersEntity" positionX="-63" positionY="-18" width="128" height="44"/>
     </elements>
 </model>

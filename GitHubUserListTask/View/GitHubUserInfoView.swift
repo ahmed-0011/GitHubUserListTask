@@ -9,8 +9,8 @@ import UIKit
 
 class GitHubUserInfoView: UIView {
     
-    var gitHubUser: GitHubUser?
     @IBOutlet var tableView: UITableView!
+    var gitHubUser: GitHubUser?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,29 +38,26 @@ class GitHubUserInfoView: UIView {
 }
 
 
-// MARK: - Table View Data Source
-extension GitHubUserInfoView: UITableViewDataSource {
+extension GitHubUserInfoView: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Table View Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GitHubUserInfoCellViewModel.numOfRows
+        return NUMBER_OF_INFO_ROWS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: GitHubUserInfoCell.identifier, for: indexPath) as?
             GitHubUserInfoCell {
-            
             let gitHubUserInfoCellViewModel = GitHubUserInfoCellViewModel(gitHubUser: gitHubUser!, row: indexPath.row)
             cell.configure(with: gitHubUserInfoCellViewModel)
             return cell
         }
         return GitHubUserInfoCell()
     }
-}
-
-
-// MARK: - Table View Delegate
-extension GitHubUserInfoView: UITableViewDelegate {
     
+    
+    // MARK: - Table View Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }

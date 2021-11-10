@@ -11,30 +11,41 @@ import CoreData
 
 class DataManager {
     
+    static let shared = DataManager()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-     
-    func saveUsers(gitHubUsers: [GitHubUser], index: Int) {
+    
+    private init () {}
+    
+    func addUsers(gitHubUsers: [GitHubUser]) {
         
         let managedContext = appDelegate.persistentContainer.viewContext
+        var entity = NSEntityDescription.entity(forEntityName: "IndexEntity", in: managedContext)!
+        let indexEntity = IndexEntity(entity: entity, insertInto: managedContext)
+        indexEntity.setValue(1, forKey: "index")
         
-        if index == 0 {
-            let entity = NSEntityDescription.entity(forEntityName: "IndexEntity", in: managedContext)!
-            let indexEntity = IndexEntity(entity: entity, insertInto: managedContext)
-            indexEntity.setValue(index, forKey: "index")
-        } else {
-            updateIndex(index: index)
-        }
+        entity = NSEntityDescription.entity(forEntityName: "UsersEntity", in: managedContext)!
+        let usersEntity = UsersEntity(entity: entity, insertInto: managedContext)
+        usersEntity.setValue(gitHubUsers, forKey: "users")
         
-        for gitHubUser in gitHubUsers {
-            let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: managedContext)!
-            let userEntity = UserEntity(entity: entity, insertInto: managedContext)
-            userEntity.setValue(gitHubUser, forKey: "user")
-        }
-    
         do {
            try managedContext.save()
          } catch let error as NSError {
-             print("Could not save. \(error)")
+             print("Could not save users. \(error)")
+         }
+    }
+    
+    func updateUsers(gitHubUsers: [GitHubUser], index: Int) {
+        
+        updateIndex(index: index)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = UsersEntity.fetchRequest()
+        
+        do {
+            let usersEntity = try managedContext.fetch(fetchRequest).first
+            usersEntity?.users?.append(contentsOf: gitHubUsers)
+            try managedContext.save()
+         } catch let error as NSError {
+             print("Could not fetch/update users. \(error)")
          }
     }
     
@@ -42,20 +53,19 @@ class DataManager {
         
         var gitHubUsers: [GitHubUser] = []
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = UserEntity.fetchRequest()
+        let fetchRequest = UsersEntity.fetchRequest()
 
         do {
-            let usersEntities = try managedContext.fetch(fetchRequest)
-            for userEntity in usersEntities {
-                gitHubUsers.append(userEntity.user!)
-            }
+            let usersEntitiy = try managedContext.fetch(fetchRequest).first
+            gitHubUsers = usersEntitiy?.users ?? []
         } catch let error as NSError {
-          print("Could not fetch. \(error)")
+          print("Could not fetch users. \(error)")
         }
         return gitHubUsers
     }
     
     func getIndex() -> Int {
+        
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = IndexEntity.fetchRequest()
         
@@ -63,21 +73,22 @@ class DataManager {
             let indexEntity = try managedContext.fetch(fetchRequest).first
             return Int(indexEntity?.index ?? 0)
         } catch let error as NSError {
-          print("Could not fetch. \(error)")
+          print("Could not fetch index. \(error)")
         }
         return 0
     }
     
     func updateIndex(index: Int) {
+        
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<IndexEntity>(entityName: "IndexEntity")
+        let fetchRequest = IndexEntity.fetchRequest()
         
         do {
             let indexEntity = try managedContext.fetch(fetchRequest).first
             indexEntity?.setValue(index, forKey: "index")
             try managedContext.save()
         } catch let error as NSError {
-          print("Could not fetch/update. \(error)")
+          print("Could not fetch/update index. \(error)")
         }
     }
 }

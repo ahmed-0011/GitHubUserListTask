@@ -12,7 +12,10 @@ import AlamofireImage
 
 class NetworkingService {
     
+    static let shared = NetworkingService()
     let api = "https://api.github.com/users?since="
+    
+    private init() {}
     
     func fetchUsers(index: Int, completion: @escaping ([GitHubUser]) -> ()) {
         

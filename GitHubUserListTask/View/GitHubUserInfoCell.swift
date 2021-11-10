@@ -9,8 +9,8 @@ import UIKit
 
 class GitHubUserInfoCell: UITableViewCell {
 
-    static let identifier = "GitHubUserInfoCell"
     @IBOutlet var userInfo: UILabel!
+    static let identifier = "GitHubUserInfoCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
